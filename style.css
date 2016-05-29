@@ -1,0 +1,13 @@
+.row{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+form .radio{
+    font-size: 18px;
+    margin: 15px;
+}
+
+.graph{
+    width: 100%;
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Práctica 2</title>
+    <link rel="stylesheet" href="./libs/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="./libs/bootstrap/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="./libs/vis/vis.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <main>
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-6">
+                    <h3 class="text-warning">Ingrese las secuencias separadas por una ,</h3>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-addon">g(n) = </span>
+                                <input type="text" class="form-control" placeholder="ejemplo: 1,2,3,4,5" aria-describedby="basic-addon1" id="g-array" value="1,2,3,4,5,6,7" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group input-group-lg">
+                                <input type="number" class="form-control" placeholder="origen" aria-describedby="basic-addon1" id="g-origen" min="0"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-addon">h(n) = </span>
+                                <input type="text" class="form-control" placeholder="ejemplo: 1,2,3,4,5" aria-describedby="basic-addon1" id="h-array"  value="9,8,7,6,5,4,3,2,1">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group input-group-lg">
+                                <input type="number" class="form-control" placeholder="origen" aria-describedby="basic-addon1" id="h-origen" min="0" >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-addon">y(n) = </span>
+                                <input type="text" class="form-control" placeholder="ejemplo: 1,2,3,4,5" aria-describedby="basic-addon1" id="y-array"  value="9,8,7,6,5,4,3,2,1" readonly="true">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group input-group-lg">
+                                <input type="text" class="form-control" placeholder="origen" aria-describedby="basic-addon1" id="y-origen" readonly="true" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="text-warning">Seleccione el tipo de convolución</h3>
+                    <div class="row">
+                        <form role="form">
+                            <label class="radio text-right">
+                                <input type="radio" name="optradio">Convolución finita
+                            </label>
+                            <label class="radio text-right">
+                                <input type="radio" name="optradio">Convolución periodica
+                            </label>
+                            <label class="radio text-right">
+                                <input type="radio" name="optradio">Convolución circular
+                            </label>
+                        </form>
+                    </div>
+                    <div class="row">
+                        <button class="btn btn-lg btn-success" onclick="App.getValues();">Realizar convolución</button>
+                        <button class="btn btn-lg btn-info" onclick="App.plot();">Ver gráficas</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row text-center">
+                <h2>Gráfica de g(n)</h2>
+                <div class="graph" id="graph-g"></div>
+            </div>
+            <div class="row text-center">
+                <h2>Gráfica de h(n)</h2>
+                <div class="graph" id="graph-h"></div>
+            </div>
+            <div class="row text-center">
+                <h2>Gráfica de y(n)</h2>
+                <div class="graph" id="graph-y"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="jquery-2.2.4.min.js"></script>
+    <script src="./libs/plotly/plotly-latest.min.js"></script>
+    <script src="./libs/bootstrap/bootstrap.min.js"></script>
+
+    <script src="app.js"></script>
+</body>
+</html>
