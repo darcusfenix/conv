@@ -20,12 +20,12 @@
                         <div class="col-md-9">
                             <div class="input-group input-group-lg">
                                 <span class="input-group-addon">g(n) = </span>
-                                <input type="text" class="form-control" placeholder="ejemplo: 1,2,3,4,5" aria-describedby="basic-addon1" id="g-array" value="1,2,3,4,5,6,7" />
+                                <input type="text" class="form-control" placeholder="ejemplo: 1,2,3,4,5" aria-describedby="basic-addon1" id="g-array" value="1,2,3" />
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="input-group input-group-lg">
-                                <input type="number" class="form-control" placeholder="origen" aria-describedby="basic-addon1" id="g-origen" min="0"/>
+                                <input type="number" class="form-control" placeholder="origen" aria-describedby="basic-addon1" id="g-origen" min="0"  value="0"/>
                             </div>
                         </div>
                     </div>
@@ -33,12 +33,12 @@
                         <div class="col-md-9">
                             <div class="input-group input-group-lg">
                                 <span class="input-group-addon">h(n) = </span>
-                                <input type="text" class="form-control" placeholder="ejemplo: 1,2,3,4,5" aria-describedby="basic-addon1" id="h-array"  value="9,8,7,6,5,4,3,2,1">
+                                <input type="text" class="form-control" placeholder="ejemplo: 1,2,3,4,5" aria-describedby="basic-addon1" id="h-array"  value="5,0,-4,1,2,0,0">
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="input-group input-group-lg">
-                                <input type="number" class="form-control" placeholder="origen" aria-describedby="basic-addon1" id="h-origen" min="0" >
+                                <input type="number" class="form-control" placeholder="origen" aria-describedby="basic-addon1" id="h-origen" min="0" value="0">
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                         <div class="col-md-9">
                             <div class="input-group input-group-lg">
                                 <span class="input-group-addon">y(n) = </span>
-                                <input type="text" class="form-control" placeholder="ejemplo: 1,2,3,4,5" aria-describedby="basic-addon1" id="y-array"  value="9,8,7,6,5,4,3,2,1" readonly="true">
+                                <input type="text" class="form-control" placeholder="ejemplo: 1,2,3,4,5" aria-describedby="basic-addon1" id="y-array"  value="" readonly="true">
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -73,7 +73,7 @@
                         </form>
                     </div>
                     <div class="row">
-                        <button class="btn btn-lg btn-success" onclick="App.getValues();">Realizar convolución</button>
+                        <button class="btn btn-lg btn-success" onclick="App.hacerConvolucion();">Realizar convolución</button>
                         <button class="btn btn-lg btn-info" onclick="App.plot();">Ver gráficas</button>
                     </div>
                 </div>
