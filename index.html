@@ -12,39 +12,50 @@
 <body>
 
     <main>
-        <div class="container">
+        <div class="content-main">
             <div class="row text-center">
                 <div class="col-md-6">
                     <h3 class="text-warning">Ingrese las secuencias separadas por una ,</h3>
                     <div class="row">
                         <div class="col-md-9">
+                            <label>Secuencia G</label>
                             <div class="input-group input-group-lg">
                                 <span class="input-group-addon">g(n) = </span>
-                                <input type="text" class="form-control" placeholder="ejemplo: 1,2,3,4,5" aria-describedby="basic-addon1" id="g-array" value="1,2,3" />
+                                <input type="text" class="form-control" placeholder="ejemplo: 1,2,3,4,5" aria-describedby="basic-addon1" id="g-array" value="-3,0,1" />
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="input-group input-group-lg">
-                                <input type="number" class="form-control" placeholder="origen" aria-describedby="basic-addon1" id="g-origen" min="0"  value="0"/>
+                                <label>Origen</label>
+                                <input type="number" class="form-control" placeholder="origen" aria-describedby="basic-addon1" id="g-origen" min="0"  value="1"/>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-9">
+                        <div class="col-md-6">
+                            <label>Secuencia H</label>
                             <div class="input-group input-group-lg">
                                 <span class="input-group-addon">h(n) = </span>
-                                <input type="text" class="form-control" placeholder="ejemplo: 1,2,3,4,5" aria-describedby="basic-addon1" id="h-array"  value="5,0,-4,1,2,0,0">
+                                <input type="text" class="form-control" placeholder="ejemplo: 1,2,3,4,5" aria-describedby="basic-addon1" id="h-array"  value="3,8,-4,.33,0,0">
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="input-group input-group-lg">
+                                <label>Origen</label>
                                 <input type="number" class="form-control" placeholder="origen" aria-describedby="basic-addon1" id="h-origen" min="0" value="0">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group input-group-lg">
+                                <label>periodo</label>
+                                <input type="number" class="form-control" placeholder="origen" aria-describedby="basic-addon1" id="h-periodo" min="0" value="3">
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-9">
+                            <label>RESULTADO</label>
                             <div class="input-group input-group-lg">
                                 <span class="input-group-addon">y(n) = </span>
                                 <input type="text" class="form-control" placeholder="ejemplo: 1,2,3,4,5" aria-describedby="basic-addon1" id="y-array"  value="" readonly="true">
@@ -52,6 +63,7 @@
                         </div>
                         <div class="col-md-3">
                             <div class="input-group input-group-lg">
+                                <label>Origen</label>
                                 <input type="text" class="form-control" placeholder="origen" aria-describedby="basic-addon1" id="y-origen" readonly="true" >
                             </div>
                         </div>
@@ -62,13 +74,13 @@
                     <div class="row">
                         <form role="form">
                             <label class="radio text-right">
-                                <input type="radio" name="optradio">Convolución finita
+                                <input type="radio" name="optradio" value="finita" checked="true">Convolución finita
                             </label>
                             <label class="radio text-right">
-                                <input type="radio" name="optradio">Convolución periodica
+                                <input type="radio" name="optradio" value="periodica">Convolución periodica
                             </label>
                             <label class="radio text-right">
-                                <input type="radio" name="optradio">Convolución circular
+                                <input type="radio" name="optradio" value="circular">Convolución circular
                             </label>
                         </form>
                     </div>
