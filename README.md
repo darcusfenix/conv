@@ -240,7 +240,7 @@ Modulo.propTypes = {
 
  onChangeInputs = (value, index | name) => {};
  
- @param value : Valor que el usuario ingresó seleccionó
+ @param value : Valor que el usuario ingresó o seleccionó. Si el input es tipo select value = {"text": "", value: ""}
  @param index : Por default retorna la posición del input en el array definido.
  @param name  : Nombre de la propiedad name del input definido. Sólo se el valor de useIndex es false.
 ```
