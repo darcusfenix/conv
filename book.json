@@ -1,0 +1,14 @@
+{
+  "gitbook": "3.2.2",
+  "title": "Redux",
+  "plugins": ["edit-link", "prism", "-highlight", "github", "anchorjs"],
+  "pluginsConfig": {
+    "edit-link": {
+      "base": "https://github.com/darcusfenix/conv/tree/master",
+      "label": "Edit This Page"
+    },
+    "github": {
+      "url": "https://github.com/darcusfenix/conv/"
+    }
+  }
+}
