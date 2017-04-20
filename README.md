@@ -146,133 +146,6 @@ Ejemplos de uso:
 * RowKeyValue
 * Spinner
 * ThemeFinanciera
-
-##### Form
-    Este componente pinta inputs. Requiere la definición de un formulario dado en el store de redux y una función para manejar el evento OnChange de 
-    cada input. Inputs disponibles:
-
-* Texto
-* Select
-* CheckBox
-* Date
-
-###### Cómo usar el componente.
-
-```javascript
-
-import React, {Component, PropTypes} from "react";
-import {connect} from "react-redux";
-import {Form} from "./widgets/index";
-import {chnageInputForm} from "./main/mainActions";
-
-@connect((store) => {
-
-    return {
-        "formAddress": store.forms.direccion
-    };
-
-})
-export default class Modulo extends Component {
-
-    constructor(props, context) {
-
-        super(props, context);
-        this.handleOnChangeInputs = this.handleOnChangeInputs.bind(this);
-        this.handleOnChangeInputsName = this.handleOnChangeInputsName.bind(this);
-
-    }
-
-    handleOnChangeInputs = (value, index) => {
-
-        this.props.dispatch(chnageInputForm({
-            index,
-            value,
-            "form": "direccion"
-        }));
-
-    };
-
-
-    handleOnChangeInputsName = (value, name) => {
-        
-        const {formAddress, dispatch} = this.props;
-        
-        const index = formAddress.findIndex(input => input.name === name);
-
-        dispatch(chnageInputForm({
-            index,
-            value,
-            "form": "usuer"
-        }));
-
-    };
-
-   
-    render = () => {
-
-        return <div>
-            <Form inputs={this.props.formAddress}
-                  onChangeInputs={this.handleOnChangeInputs}/>
-                  
-            <Form useIndex={false}
-                  inputs={this.props.formAddress}
-                  onChangeInputs={this.handleOnChangeInputsName}/>
-        </div>;
-
-    };
-    
-}
-
-Modulo.propTypes = {
-    "formAddress": PropTypes.array
-};
-
-```
-###### Propiedades del componente Form
-| nombre            | tipo              | valor default     | descripción       |
-|:----------        |:------------------|:---------------   |:----------------  |
-| onChangeInputs*   | function          |                   | Función callback que se dispara cuando el usuario cambia el valor del input. Sin importar el tipo de input.[1]|
-| inputs*           | array             |                   | Definición del formulario.| 
-| useIndex          | boolean           |    true           | Indica si retorna el índice en la función onChangeInputs, si es falso retorna la propiedad name del input| 
-
-```
-[1] onChangeInputs
-
- onChangeInputs = (value, index | name) => {};
- 
- @param value : Valor que el usuario ingresó o seleccionó. Si el input es tipo select value = {"text": "", value: ""}
- @param index : Por default retorna la posición del input en el array definido.
- @param name  : Nombre de la propiedad name del input definido. Sólo se el valor de useIndex es false.
-```
-
-###### Cómo definir un formulario con inputs en el store?
-```javascript
-const form = [
-  {
-    "name": "username",
-    "label": "Nombre de usuario",
-    "pattern": /^[a-z áéíóúÁÉÍÓÚ]+$/i,
-    "errorText": "Ingresa un nombre válido"
-  }
-]
-```
-###### Propiedades de un INPUT
-
-| nombre    | tipo              | opciones                          |  valor default | descripción                                                                                      |
-|:----------|:------------------|:----------------------------------|:---------------|:-------------------------------------------------------------------------------------------------|
-| name*     | string            |                                   |                | El identificador del input.                                                                      |
-| label     | string            |                                   |                | El texto que se mostrará como identificador del input y placeholder                              |
-| pattern   | expresión regular |                                   |                | Expresión regular que se evaluará para validar el input.                                         |    
-| errorText | string            |                                   |                | Texto que se mostrará cuando el input no cumple la evaluación de la expresión regular            |
-| type      | string            | checkbox, select, date, textfield |  textfield     | Tipo de input disponible                                                                         |
-| required  | boolean           |                                   |                | Indica si el input deberá tener un valor. Aplica para los de tipo select                         |
-| format    | string            | currency, percentage              |  DD/MM/YYYY    | Representa el formato de texto que se pintará el valor del input                                 |
-| valueTrue | string            |                                   |                | Sólo aplica para tipo checkbox y es el valor a mostrar cuando esté seleccionado                |
-| valueFalse| string            |                                   |                | Sólo aplica para tipo checkbox y es el valor a mostrar cuando no esté seleccionado             |
-| disabled  | boolean           |                                   | false          | Permite o no la edición del valor                                                                |
-| unix      | boolean           |                                   | false          | Sólo aplica para tipo date. Considera si el valor deberá ser manejado com unix                   |
-
-    * Propiedad obligatoria
     
 ### CHARTS:
 
@@ -342,3 +215,34 @@ const form = [
     * <b>filtrosCatalogos</b>: Ejemplo: El prefijo "filtros" determina un formulario para realizar filtros a una serie de registros que posiblemente se mostrarán en una Tabla.
 * <b>entities</b>: Objeto que contiene los arrays para ser mostrados en tablas. Un objeto no tiene definición, es decir, queda abierto. 
 * <b>tmp</b>: Objeto que contiene una propiedad form. Básicamente misma definición de "form". Pero, el objetivo es utilizar este como respaldo de valores de los inputs. Ejemplo: Cuando se inicia un formulario pasar el form original a esta propiedad. Los valores del form original se modifican, pero el usuario decide cancelar tal acción, regresaremos este respaldo al form original para asi mostrar al usuario los valores a como estaban.  
+
+
+
+### Cómo definir un formulario con inputs en el store?
+```javascript
+const form = [
+  {
+    "name": "username",
+    "label": "Nombre de usuario",
+    "pattern": /^[a-z áéíóúÁÉÍÓÚ]+$/i,
+    "errorText": "Ingresa un nombre válido"
+  }
+]
+```
+###### Propiedades de un INPUT
+
+| nombre    | tipo              | opciones                          |  valor default | descripción                                                                                      |
+|:----------|:------------------|:----------------------------------|:---------------|:-------------------------------------------------------------------------------------------------|
+| name*     | string            |                                   |                | El identificador del input.                                                                      |
+| label     | string            |                                   |                | El texto que se mostrará como identificador del input y placeholder                              |
+| pattern   | expresión regular |                                   |                | Expresión regular que se evaluará para validar el input.                                         |    
+| errorText | string            |                                   |                | Texto que se mostrará cuando el input no cumple la evaluación de la expresión regular            |
+| type      | string            | checkbox, select, date, textfield |  textfield     | Tipo de input disponible                                                                         |
+| required  | boolean           |                                   |                | Indica si el input deberá tener un valor. Aplica para los de tipo select                         |
+| format    | string            | currency, percentage              |  DD/MM/YYYY    | Representa el formato de texto que se pintará el valor del input                                 |
+| valueTrue | string            |                                   |                | Sólo aplica para tipo checkbox y es el valor a mostrar cuando esté seleccionado                |
+| valueFalse| string            |                                   |                | Sólo aplica para tipo checkbox y es el valor a mostrar cuando no esté seleccionado             |
+| disabled  | boolean           |                                   | false          | Permite o no la edición del valor                                                                |
+| unix      | boolean           |                                   | false          | Sólo aplica para tipo date. Considera si el valor deberá ser manejado com unix                   |
+
+    * Propiedad obligatoria
