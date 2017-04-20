@@ -58,6 +58,34 @@
 │   │   ├── drawerItems.es6         # Definición del menú. 
 │   │   ├── routes.jsx              # Mapeo de vistas. Utiliza react-router@3.x 
 ```
+
+### CONSTAINERS
+    Esta sección se encuentra en src/containers. Carpeta que contiene componentes como contenedores que sí pueden 
+    manejar estado.
+```
+.
+├── /.idea                                  #     
+├── /node_modules                           # 
+├── /src                                    #  
+│   ├── /containers                         #  
+│   │   ├── /main                           #  
+│   │   │   ├── Main.jsx                    # Contenedor Main, es decir, principal para toda la SPA.
+│   │   │   ├── mainActions.es6             # Acciones principales que disparan el dispatch a los reducers correspondientes
+│   │   │   ├── mainReducer.es6             # Reducers principales.
+│   │   ├── /pages                          # Contenedores que son mapeados en react-router. 
+│   │   │   ├── /catalogos                  # Carpeta que debe tener un contenedor, acciones y reducers de este módulo.
+│   │   │   │   ├── CatalogosPage.jsx       # Contemedor catálogos
+│   │   │   │   ├── catalogosActions.es6    # Acciones únicamente se disparan en CatalogosPage.jsx
+│   │   │   │   ├── catalogosReducer.es6    # Reducers que únicamente se atienden en el catalogosActions.es6
+│   │   │   │   ├── /util                   # Carpeta que contiene archivos como utilería para el módulo únicamente.
+│   │   │   │   │   ├── selectors.es6       # Carpeta que contiene archivos como utilería para el módulo únicamente.
+```
+##### Lineamientos de un Container
+
+* Nombrar el archivo y clase con CamelCase.
+* Conectar con redux con el decorador.
+* Usar 
+
 ### SERVICES
     Esta sección se encuentra en src/services. Carpeta que contiene clases con metodos estáticos para utilizar en
     cualquier container/componente en la spa. Objetivo de uso: reducir código. Cada método requiere la función dispatch
